@@ -16,20 +16,18 @@ public class Table {
 	
 	public void AddPlayerToTable(Player p)
 	{
-		//TODO: Implement this method
+		hmTablePlayers.put(p.getPlayerID(),p);
 	}
 	public void RemovePlayerFromTable(Player p)
 	{
-		//TODO: Implement this method		
+		hmTablePlayers.remove(p.getPlayerID());	
 	}
-	
 	public Player GetPlayerFromTable(Player p)
 	{
-		//TODO: Implement this method	
-		return null;
+		return hmTablePlayers.get(p.getPlayerID());	
 	}
 	public void ClearTable()
 	{
-		//TODO: Implement this method	
+		hmTablePlayers.clear();
 	}
 }
