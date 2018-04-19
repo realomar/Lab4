@@ -30,4 +30,7 @@ public class Table {
 	{
 		hmTablePlayers.clear();
 	}
+	public ArrayList<Player> GetTable(){
+		return new ArrayList<Player> (hmTablePlayers.values());
+	}
 }
