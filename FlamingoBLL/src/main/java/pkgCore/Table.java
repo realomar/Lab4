@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
+import pkgEnum.eGameType;
+
 public class Table {
 
 	private UUID TableID;
@@ -12,6 +14,13 @@ public class Table {
 	public Table() {
 		super();
 		this.TableID = UUID.randomUUID();
+	}
+	
+	protected void CreateDeck(eGameType eGT) {
+		switch(eGT) {
+		case BLACKJACK:
+		case POKER:
+		}
 	}
 	
 	public void AddPlayerToTable(Player p)
