@@ -1,8 +1,9 @@
 package pkgCore;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Player {
+public class Player implements Serializable{
 
 	private UUID PlayerID;
 	private String PlayerName;

@@ -9,20 +9,23 @@ import pkgEnum.eGameType;
 public class GamePlayBlackJackTest {
 
 	@Test
-	public void test() {
-		GamePlayBlackJack testGame = new GamePlayBlackJack(eGameType.BLACKJACK);
-		assertNotNull(testGame);
+	public void GamePlayBlackJackTest1() {
 		
 		Player p1 = new Player("Joe",1);
-		Player p2 = new Player("Jim",2);
+		Player p2 = new Player("Bert",2);
 		
-		Table t = new Table(); // Table has already been tested to work.
+		Table t = new Table();
+		
 		t.AddPlayerToTable(p1);
 		t.AddPlayerToTable(p2);
 		
-		testGame.AddPlayersToGame(t.GetTable());
+		GamePlayBlackJack gpbj = new GamePlayBlackJack(t);
+		assertNotNull(gpbj);
+		gpbj.AddPlayersToGame(t.GetTablePlayers());
 		
-		//TODO: Add a way in GamePlay to check the population of a game, then test it here.
+		assertEquals(2,gpbj.GetPlayersInGame().size());
+		
+		
 	}
 
 }

@@ -10,17 +10,24 @@ public abstract class GamePlay {
 
 	private eGameType eGameType;
 	private HashMap<UUID, Player> hmGamePlayers = new HashMap<UUID,Player>();
+	private Table t; 
 	
-	public GamePlay(eGameType eGameType)
+	public GamePlay(Table t, eGameType eGameType)
 	{
 		super();
+		this.t= t;
+		this.AddPlayersToGame(t.GetTablePlayers());
 		this.eGameType = eGameType;
 	}
 	
 	protected void AddPlayersToGame(ArrayList<Player> Players)
 	{
-		for(Player p : Players)
-			hmGamePlayers.put(p.getPlayerID(),p);
+	
+		for (Player p: Players)
+		{
+			hmGamePlayers.put(p.getPlayerID(), p);
+		}
+
 	}
 	protected void RemovePlayerFromGame(Player p)
 	{
@@ -28,8 +35,20 @@ public abstract class GamePlay {
 	}
 	protected Player GetPlayerInGame(Player p)
 	{
-		//TODO: test this
-		if(hmGamePlayers.containsKey(p.getPlayerID())) return p;
-		else return null;
+		return hmGamePlayers.get(p.getPlayerID());
 	}
+	
+	protected ArrayList<Player> GetPlayersInGame()
+	{
+		return new ArrayList<Player> (hmGamePlayers.values());
+	}
+
+	public Table getT() {
+		return t;
+	}
+
+	public void setT(Table t) {
+		this.t = t;
+	}
+	
 }

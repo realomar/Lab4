@@ -3,18 +3,10 @@ package pkgCore;
 import pkgEnum.eAction;
 import java.io.Serializable;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
 public class Action implements Serializable {
 
-	@XmlElement
 	private eAction eAction;
 
-	@XmlElement
 	private Player ActPlayer;
 	
 	public Action()

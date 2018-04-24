@@ -11,6 +11,18 @@ public class Deck {
 
 	private ArrayList<Card> cardsInDeck = new ArrayList<Card>();
 
+	public Deck(int iNbrOfDecks) {
+		for (int a = 0; a < iNbrOfDecks; a++) {
+
+			for (eSuit eSuit : eSuit.values()) {
+				for (eRank eRank : eRank.values()) {
+					cardsInDeck.add(new Card(eSuit, eRank));
+				}
+			}
+		}
+		Collections.shuffle(cardsInDeck);
+	}
+
 	public Deck() {
 		for (eSuit eSuit : eSuit.values()) {
 			for (eRank eRank : eRank.values()) {
@@ -22,8 +34,7 @@ public class Deck {
 
 	public Card Draw() throws DeckException {
 
-		if (cardsInDeck.size() == 0)
-		{
+		if (cardsInDeck.size() == 0) {
 			throw new DeckException(this);
 		}
 		return cardsInDeck.remove(0);
@@ -40,8 +51,7 @@ public class Deck {
 		return (null);
 	}
 
-	public int getiDeckCount()
-	{
+	public int getiDeckCount() {
 		return cardsInDeck.size();
 	}
 }
