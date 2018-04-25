@@ -15,6 +15,7 @@ public class GamePlayBlackJackTest {
 		Player p2 = new Player("Bert",2);
 		
 		Table t = new Table();
+		t.CreateDeck(eGameType.BLACKJACK);
 		
 		t.AddPlayerToTable(p1);
 		t.AddPlayerToTable(p2);
