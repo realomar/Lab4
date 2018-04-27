@@ -61,23 +61,36 @@ public class BlackJackController implements Initializable {
 
 	public void HandleTableState(Table t) {
 
-		for (Player p: t.GetTablePlayers())
-		{
-			switch (p.getiPlayerPosition())
-			{
+		for (Player p: t.GetTablePlayers()) {
+			switch (p.getiPlayerPosition()) {
 			case 0:
 				lblBottomName.setText(p.getPlayerName());
+				
+				if(btnBottom.getText().equals("Leave")) {
+					btnTop.setVisible(true);
+					btnTop.setText("Sit");
+					lblTopName.setText("Lab 4");
+				} else if(FlamingoGame.getAppPlayer().getiPlayerPosition() == p.getiPlayerPosition()) {
+					btnTop.setVisible(false);
+					btnBottom.setText("Leave");
+				} else btnBottom.setVisible(false);
+				
 				break;
+			
 			case 2:
 				lblTopName.setText(p.getPlayerName());
+				
+				if(btnTop.getText().equals("Leave")) {
+					btnBottom.setVisible(true);
+					lblBottomName.setText("Lab 4");
+					btnBottom.setText("Sit");
+				} else if(FlamingoGame.getAppPlayer().getiPlayerPosition() == p.getiPlayerPosition()) {
+					btnBottom.setVisible(false);
+					btnTop.setText("Leave");
+				} else btnTop.setVisible(false);
 				break;
 			}
 		}
-		
-		//	How to handle button text & visibility
-		//btnTop.setText("Leave");
-		//btnTop.setVisible(false);
-		// TODO: Implement this.
 	}
 
 	public void HandleGameState(GamePlay gp) {
